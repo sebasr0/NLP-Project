@@ -118,7 +118,7 @@ docker pull sebasr0/complaints-spark-app:latest
 ```
 #### Instalar Docker en EC2
 
-Si su instancia de Aazon Linux 2 no tiene docker instalado, puede instalarlo siguiendo estos comandos en orden:
+Si su instancia de Amazon Linux 2 no tiene docker instalado, puede instalarlo siguiendo estos comandos en orden:
 
 ```bash
 sudo yum update -y
