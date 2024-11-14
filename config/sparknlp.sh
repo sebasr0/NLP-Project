@@ -19,7 +19,6 @@ sudo python3 -m pip install --upgrade pip
 
 # Instalar paquetes necesarios
 sudo python3 -m pip install numpy
-#SEBAS PK PUTAS LA KITASTE :(
 sudo python3 -m pip install spark-nlp
 sudo python3 -m pip install nltk
 #sudo python3 -m pip install spacy

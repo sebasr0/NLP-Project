@@ -1,28 +1,77 @@
 # Proyecto de Procesamiento de Texto con Spark NLP
 
-Este proyecto utiliza Spark NLP para procesar y analizar texto. A continuación, se describe la estructura y contenido del proyecto.
+Este proyecto utiliza Spark NLP para el procesamiento y análisis de texto. A continuación, se describe la estructura y los componentes del proyecto.
+
+---
 
 ## Estructura del Proyecto
 
-El proyecto se divide en los siguientes directorios y archivos:
+El proyecto se organiza en los siguientes directorios y archivos:
 
-* `app`: Contiene la aplicacion streamlit y el código principal del proyecto.
-* `/app/requirements.txt`: Contiene las dependencias necesarias para ejecutar la aplicacion en un container de docker.
-* `/app/models`: Contiene los modelos entrenados en Spark, CountVectorizer, IDF, LDA, LogisticRegression, DecisionTree.
-* `config`: Contiene archivos de configuración para EMR.
-* `sparknlp-complaints`: Contiene un notebook de Jupyter que contiene el analisis y la creacion de funciones para la aplicacion, muestra y describe el uso de pipelines de Spark NLP para procesar texto.
-* `Dockerfile`: Para la generacion alternativa del contenedor con el repositorio previamente clonado.
+- **`/app`**: Contiene la aplicación en Streamlit y el código principal.
+  - **`requirements.txt`**: Dependencias necesarias para ejecutar la aplicación en un contenedor Docker.
+  - **`models`**: Modelos entrenados, incluyendo CountVectorizer, IDF, LDA, LogisticRegression y DecisionTree.
+  - **`Dockerfile`**: Configuración para generar el contenedor a partir del repositorio clonado.
+- **`/config/`**: Archivos de configuración para EMR.
+- **`/sparknlp-complaints`**: Notebooks de Jupyter que contienen análisis, creación de funciones, y pipelines de Spark NLP. Incluye el uso de MlFlow para el seguimiento de modelos.
+  - **`mlruns`**: Registro de experimentos y modelos en MlFlow.
 
-## Contenido del Proyecto
+---
 
-El proyecto incluye los siguientes componentes:
+## Componentes del Proyecto
 
-* **CountVectorizer**: Un modelo que convierte una colección de textos en una matriz de frecuencias de tokens. Esto permite representar el texto en función de la cantidad de veces que aparece cada token en el corpus.
-* **IDF**:  Un modelo que ajusta la frecuencia de los tokens en función de su aparición en múltiples documentos. Ayuda a reducir la importancia de palabras comunes en el corpus.
-* **LDA**: Un modelo de análisis de tópicos que organiza un corpus de documentos en grupos o tópicos basados en las frecuencias de los tokens, identificando temas subyacentes.
-* **LogisticRegression**: Un modelo de clasificación supervisado utilizado para predecir categorías. En procesamiento de texto, se emplea junto a otras técnicas para clasificar documentos en función de su contenido.
-* **DecisionTreeClassifier**: Un modelo de clasificación supervisado que utiliza un árbol de decisiones para segmentar los datos. Es útil para clasificar textos en categorías basándose en reglas derivadas del contenido.
-* **Notebook de Jupyter**: Un notebook de demostración que muestra cómo utilizar Spark NLP para procesar y analizar texto de forma interactiva en un entorno de Jupyter.
+1. **CountVectorizer**: Representa textos en una matriz de frecuencias de tokens.
+2. **IDF**: Ajusta la frecuencia de tokens, reduciendo la importancia de palabras comunes.
+3. **LDA**: Agrupa documentos en tópicos basados en la frecuencia de tokens.
+4. **Logistic Regression**: Clasificación supervisada para predecir categorías de texto.
+5. **DecisionTreeClassifier**: Clasificación mediante árbol de decisiones basado en contenido.
+6. **Notebook de Jupyter**: Ejemplo interactivo del uso de Spark NLP.
+
+---
+
+## Resultados
+
+### Asignación de Etiquetas
+
+#### Modelos de Tópicos (LDA)
+
+- **Tema 0: Hipotecas y Bienes Raíces**  
+  - Términos predominantes: `['loan', 'mortgage', 'home', 'modification', 'property', 'payment']`
+  - Categoría: "Préstamos Hipotecarios y Propiedades"
+
+- **Tema 1: Operaciones Bancarias y Transacciones**  
+  - Términos predominantes: `['check', 'deposit', 'fund', 'account', 'branch', 'bank']`
+  - Categoría: "Operaciones Bancarias y Sucursales"
+
+- **Tema 2: Informes de Crédito y Disputas**  
+  - Términos predominantes: `['report', 'credit', 'inquiry', 'dispute', 'consumer']`
+  - Categoría: "Reportes de Crédito y Protección del Consumidor"
+
+- **Tema 3: Tarjetas de Crédito y Cargos de Intereses**  
+  - Términos predominantes: `['payment', 'fee', 'balance', 'card', 'account']`
+  - Categoría: "Tarjetas de Crédito y Cargos Financieros"
+
+- **Tema 4: Fraude y Disputas de Transacciones**  
+  - Términos predominantes: `['charge', 'fraud', 'transaction', 'claim', 'card']`
+  - Categoría: "Fraude y Disputas de Transacciones"
+
+---
+
+### Predicción de Etiquetas
+
+Se utilizaron los siguientes modelos para la prediccion de nuevas etiquetas.
+
+- **Logistic Regression**
+  - Test Set Accuracy = 0.799
+  - Test Set F1 Score = 0.799
+
+- **Decision Tree**
+  - Test Set Accuracy = 0.539
+  - Test Set F1 Score = 0.538
+
+El modelo de **Logistic Regression** fue seleccionado para la aplicación.
+
+---
 
 ## Requisitos
 
@@ -87,7 +136,7 @@ docker run -p 8501:8501 sebasr0/complaints-spark-app:latest
 
 2. Para configurar el cluster correctamente, es necesario especificar boostrap actions y software settings tal y como se contienen en los archivos `/config/configemr.json` y `/config/sparknlp.sh` respectivamente, deben estar cargados en un bucket de s3 previamente.
 
-Las configuraciones de software permiten instalar la version de Java 11, configurar la libreria SparkNLP al iniciar una sesion de Spark para el cluster, y los nodos correspondientes, compatible con la libreria SparkNLP.
+Las configuraciones de software permiten instalar la version de Java 11 en todas las aplicaciones de los nodos, esta version es compatible con SparkNLP, adicionalmente configura la libreria SparkNLP al iniciar una sesion de Spark para el cluster, y los nodos correspondientes.
 
 ![Software Settings][soft]
 
@@ -126,3 +175,7 @@ Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarme en [tu corr
 [note]: /img/notebook.png
 [int]: /img/int.png
 [app]: /img/app.png
+
+
+
+
