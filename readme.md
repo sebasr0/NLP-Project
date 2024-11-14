@@ -110,7 +110,7 @@ Para ejecutar los notebooks en un entorno diferente como Amazon EMR o Ubuntu, se
 
 ## Instalación
 
-### Instalar aplicacion con Docker (Cualquier SO)
+### Instalar aplicacion con Docker (Cualquier SO o instancia EC2)
 
 * Ejecuta el siguiente comando para hacer pull de la imagen docker que contiene la aplicacion:
 ```bash
@@ -128,7 +128,10 @@ docker run -p 8501:8501 sebasr0/complaints-spark-app:latest
 
 ![Aplicacion][app]
 
-### Proceso para EMR 6.14.0
+Nota: Si se ejecuta desde una instancia EC2 con Amazon Linux 2, asegurarse de configurar los puertos de entrada del grupo de seguridad de la instacia 
+para que coincidan con los del puerto de la app (8501) y que la instancia tenga accseso a internet.
+
+### Proceso para ejecutar el notebook de analisis en Amazon EMR 6.14.0
 
 1. Crear un cluster en Amazon EMR con la version 6.14.0 con las aplicaciones Livy, Hadoop, Spark, JupyterEnterpriseGateway.
 
