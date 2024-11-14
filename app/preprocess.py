@@ -25,9 +25,9 @@ remove_xxxx_udf = udf(remove_xxxx, StringType())
 
 # Lazy load models and transformers
 def load_models(spark):
-    count_vectorizer_model = CountVectorizerModel.load("/home/ubuntu/Documents/NLP-Project/models/count_vectorizer_model")
-    idf_model = IDFModel.load("/home/ubuntu/Documents/NLP-Project/models/idf_model")
-    logistic_regression_model = LogisticRegressionModel.load("/home/ubuntu/Documents/NLP-Project/models/logisticregression")
+    count_vectorizer_model = CountVectorizerModel.load("/app/models/count_vectorizer_model")
+    idf_model = IDFModel.load("/app/models/idf_model")
+    logistic_regression_model = LogisticRegressionModel.load("/app/models/logisticregression")
 
     # Define Spark NLP pipeline components and processing pipeline
     document_assembler = DocumentAssembler().setInputCol("complaint_what_happened").setOutputCol("document")
