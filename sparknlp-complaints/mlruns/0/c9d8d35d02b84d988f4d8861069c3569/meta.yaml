@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ubuntu/Documents/sparknlp-complaints/mlruns/0/c9d8d35d02b84d988f4d8861069c3569/artifacts
+end_time: 1731190153096
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c9d8d35d02b84d988f4d8861069c3569
+run_name: worried-grouse-361
+run_uuid: c9d8d35d02b84d988f4d8861069c3569
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731189587395
+status: 3
+tags: []
+user_id: ubuntu

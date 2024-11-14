@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ubuntu/Documents/sparknlp-complaints/mlruns/0/88ae01bc569449a7b3ceb6e3a8cd60b7/artifacts
+end_time: 1731084402808
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 88ae01bc569449a7b3ceb6e3a8cd60b7
+run_name: bouncy-hen-867
+run_uuid: 88ae01bc569449a7b3ceb6e3a8cd60b7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731084009937
+status: 3
+tags: []
+user_id: ubuntu
