@@ -1,6 +1,6 @@
-# Proyecto de Procesamiento de Texto con Spark NLP
+# Proyecto de Procesamiento de Texto de quejas bancarias con Spark NLP
 
-Este proyecto utiliza Spark NLP para el procesamiento y análisis de texto. A continuación, se describe la estructura y los componentes del proyecto.
+Este proyecto utiliza Spark NLP para el procesamiento y análisis de texto de quejas bancarias. A continuación, se describe la estructura y los componentes del proyecto.
 
 ---
 
@@ -116,7 +116,25 @@ Para ejecutar los notebooks en un entorno diferente como Amazon EMR o Ubuntu, se
 ```bash
 docker pull sebasr0/complaints-spark-app:latest
 ```
+#### Instalar Docker en EC2
 
+Si su instancia de Aazon Linux 2 no tiene docker instalado, puede instalarlo siguiendo estos comandos en orden:
+
+```bash
+sudo yum update -y
+```
+```bash
+sudo amazon-linux-extras install docker -y
+```
+```bash
+sudo service docker start
+```
+```bash
+sudo usermod -aG docker ec2-user
+```
+```bash
+newgrp docker
+```
 ## Ejecución
 
 1. Ejecuta el siguiente comando para abrir el puerto requerido por la aplicacion de streamlit y ejecutar la aplicacion:
