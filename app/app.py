@@ -9,11 +9,11 @@ pipeline_model = load_models(spark)
 
 # Define banking-related labels
 labels = {
-    0: "Credit Approval",
-    1: "Fraudulent Transaction",
-    2: "Account Inquiry",
-    3: "Insurance Claim",
-    4: "Customer Support"
+    0: "Mortgage and Loan Services",
+    1: "Bank Account Operations and Fund Transactions",
+    2: "Credit Reporting and Dispute Resolution",
+    3: "Credit Card and Payment Issues",
+    4: "Fraud, Security, and Transaction Disputes"
 }
 
 # Sidebar for settings and information
