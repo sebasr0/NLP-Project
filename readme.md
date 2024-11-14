@@ -187,7 +187,7 @@ El proyecto está licenciado bajo la licencia MIT.
 
 ## Contacto
 
-Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarme en [tu correo electrónico o en tu perfil de GitHub].
+Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarme en https://github.com/sebasr0/.
 
 
 [def]: /img/cluster.png
